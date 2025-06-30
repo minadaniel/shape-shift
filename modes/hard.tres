@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Mode.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+standard = 37
+grid_scale = Vector2( 0.51, 0.51 )
+rows = 8
+cols = 12
+swaps = 5000

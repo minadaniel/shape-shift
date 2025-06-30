@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/Grid.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PuzzleGenerator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/circles_bg.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Puzzle.gd" type="Script" id=5]
+[ext_resource path="res://scenes/VictoryEffect.tscn" type="PackedScene" id=6]
+
+[node name="Puzzle" type="Node"]
+script = ExtResource( 5 )
+generatorClass = ExtResource( 3 )
+victoryEffectClass = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.0745098, 0.196078, 1 )
+
+[node name="CirclesBG" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Grid" type="Node2D" parent="."]
+position = Vector2( 25, 130 )
+script = ExtResource( 1 )
+tile_class = ExtResource( 2 )
+
+[node name="DarkRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0, 0.0588235, 1 )
+
+[node name="Tween" type="Tween" parent="."]

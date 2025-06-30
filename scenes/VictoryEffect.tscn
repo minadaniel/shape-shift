@@ -1,0 +1,155 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/circle.png" type="Texture" id=1]
+[ext_resource path="res://scripts/VictoryEffect.gd" type="Script" id=2]
+[ext_resource path="res://assets/Purple Smile.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/again.png" type="Texture" id=4]
+[ext_resource path="res://scenes/GameButton.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 170
+font_data = ExtResource( 3 )
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.273743, 0.709497, 1 )
+colors = PoolColorArray( 0.299196, 0.894531, 0.0838623, 1, 0.910156, 0.897379, 0.0924377, 1, 0.0551147, 0.671875, 0.527322, 1, 0.624313, 0.119629, 0.765625, 1 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.0111732, 0.351955, 0.709497, 1 )
+colors = PoolColorArray( 0.894531, 0.102862, 0.0838623, 1, 0.472656, 0.0738525, 0.270139, 1, 0.124084, 0.251996, 0.835938, 1, 0.392578, 0.468231, 0.523438, 1 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.329609, 0.636872, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.703125, 0, 1, 0.96875, 1, 0, 1, 0.3125, 1, 0, 1 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.0111732, 0.351955, 0.709497, 1 )
+colors = PoolColorArray( 0.0830078, 0.664062, 0.309982, 1, 1, 0.34375, 0.666749, 1, 1, 1, 1, 1, 0.179688, 0.653928, 1, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 75
+outline_size = 5
+extra_spacing_char = 5
+font_data = ExtResource( 3 )
+
+[node name="VictoryEffect" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.0705882, 0.247059, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 129.0
+margin_top = 357.0
+margin_right = 592.0
+margin_bottom = 598.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 231, 120 )
+custom_colors/font_color = Color( 0.0474701, 0.495862, 0.714844, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 10
+custom_fonts/font = SubResource( 3 )
+text = "WOW!"
+align = 1
+valign = 1
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="One" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 90, -20 )
+emitting = false
+amount = 55
+lifetime = 5.0
+one_shot = true
+texture = ExtResource( 1 )
+initial_velocity = 50.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+tangential_accel = 180.0
+tangential_accel_random = 1.0
+scale_amount = 0.2
+color_ramp = SubResource( 1 )
+
+[node name="Two" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 550, -20 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+emitting = false
+amount = 55
+lifetime = 5.0
+one_shot = true
+texture = ExtResource( 1 )
+initial_velocity = 50.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+tangential_accel = 180.0
+tangential_accel_random = 1.0
+scale_amount = 0.2
+color_ramp = SubResource( 2 )
+
+[node name="Three" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 550, 1300 )
+scale = Vector2( 1, -1 )
+emitting = false
+amount = 55
+lifetime = 5.0
+one_shot = true
+texture = ExtResource( 1 )
+initial_velocity = 50.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+tangential_accel = 180.0
+tangential_accel_random = 1.0
+scale_amount = 0.2
+color_ramp = SubResource( 4 )
+
+[node name="Four" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 90, 1300 )
+scale = Vector2( 0.994261, -1 )
+emitting = false
+amount = 55
+lifetime = 5.0
+one_shot = true
+texture = ExtResource( 1 )
+initial_velocity = 50.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+tangential_accel = 180.0
+tangential_accel_random = 1.0
+scale_amount = 0.2
+color_ramp = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Again" type="HBoxContainer" parent="."]
+visible = false
+margin_left = 225.0
+margin_top = 700.0
+margin_right = 554.0
+margin_bottom = 800.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="AgainButton" parent="Again" instance=ExtResource( 5 )]
+margin_right = 238.0
+margin_bottom = 108.0
+custom_fonts/font = SubResource( 6 )
+text = "AGAIN"
+color = Color( 0, 0.647059, 1, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Again"]
+margin_left = 253.0
+margin_right = 328.0
+margin_bottom = 108.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+flip_h = true
+
+[connection signal="pressed" from="Again/AgainButton" to="." method="_on_AgainButton_pressed"]

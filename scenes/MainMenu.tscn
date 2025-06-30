@@ -1,0 +1,204 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/circles_bg.png" type="Texture" id=2]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/purple_smile_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/circle.png" type="Texture" id=5]
+[ext_resource path="res://assets/rect.png" type="Texture" id=6]
+[ext_resource path="res://assets/quit.png" type="Texture" id=7]
+[ext_resource path="res://assets/Purple Smile.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+outline_size = 5
+extra_spacing_char = 5
+font_data = ExtResource( 8 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.0745098, 0.196078, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 125.0
+margin_right = -100.0
+margin_bottom = -190.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 520.0
+margin_bottom = 965.0
+custom_constants/separation = 0
+
+[node name="Play" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_right = 520.0
+margin_bottom = 142.0
+color = Color( 0.835294, 0.207843, 0.0392157, 1 )
+
+[node name="ModesControl" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 520.0
+margin_bottom = 383.0
+size_flags_vertical = 3
+
+[node name="ModePicker" type="TextureRect" parent="MarginContainer/VBoxContainer/ModesControl"]
+unique_name_in_owner = true
+modulate = Color( 0.635294, 0.388235, 1, 1 )
+margin_right = 98.0
+margin_bottom = 98.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ModesControl"]
+margin_right = 520.0
+margin_bottom = 244.0
+alignment = 1
+
+[node name="Mode" type="Label" parent="MarginContainer/VBoxContainer/ModesControl/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 142.0
+custom_colors/font_color = Color( 0.0666667, 0.345098, 0.247059, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "mode"
+align = 1
+uppercase = true
+
+[node name="ModesContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ModesControl/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 146.0
+margin_right = 520.0
+margin_bottom = 244.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Easy" type="TextureButton" parent="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer"]
+unique_name_in_owner = true
+modulate = Color( 0.623529, 0.721569, 0.858824, 1 )
+margin_left = 73.0
+margin_right = 171.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 49, 49 )
+texture_normal = ExtResource( 5 )
+
+[node name="Medium" type="TextureButton" parent="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer"]
+unique_name_in_owner = true
+modulate = Color( 0.290196, 0.32549, 0.435294, 1 )
+margin_left = 211.0
+margin_right = 309.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 49, 49 )
+texture_normal = ExtResource( 5 )
+
+[node name="Hard" type="TextureButton" parent="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer"]
+unique_name_in_owner = true
+modulate = Color( 0.0813599, 0.0910249, 0.121094, 1 )
+margin_left = 349.0
+margin_right = 447.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 49, 49 )
+texture_normal = ExtResource( 5 )
+
+[node name="SoundsControl" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 383.0
+margin_right = 520.0
+margin_bottom = 624.0
+size_flags_vertical = 3
+
+[node name="SoundPicker" type="TextureRect" parent="MarginContainer/VBoxContainer/SoundsControl"]
+unique_name_in_owner = true
+modulate = Color( 0.509804, 0.529412, 0.662745, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SoundsControl"]
+margin_top = 25.0
+margin_right = 520.0
+margin_bottom = 269.0
+
+[node name="Sounds" type="Label" parent="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 142.0
+custom_colors/font_color = Color( 0, 0.160784, 0.435294, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "sounds"
+align = 1
+uppercase = true
+
+[node name="SoundsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 146.0
+margin_right = 520.0
+margin_bottom = 244.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="True" type="TextureButton" parent="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer/SoundsContainer"]
+unique_name_in_owner = true
+modulate = Color( 0.0823529, 0.917647, 0.0117647, 1 )
+margin_left = 142.0
+margin_right = 240.0
+margin_bottom = 98.0
+texture_normal = ExtResource( 5 )
+
+[node name="False" type="TextureButton" parent="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer/SoundsContainer"]
+unique_name_in_owner = true
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 280.0
+margin_right = 378.0
+margin_bottom = 98.0
+texture_normal = ExtResource( 5 )
+
+[node name="Help" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 624.0
+margin_right = 520.0
+margin_bottom = 865.0
+size_flags_vertical = 3
+text = "HELP"
+color = Color( 0.101961, 0.152941, 0.227451, 1 )
+
+[node name="Quit" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 865.0
+margin_right = 520.0
+margin_bottom = 965.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Quit"]
+margin_left = 129.0
+margin_right = 210.0
+margin_bottom = 100.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="QuitButton" parent="MarginContainer/VBoxContainer/Quit" instance=ExtResource( 1 )]
+margin_left = 225.0
+margin_right = 391.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "EXIT"
+color = Color( 1, 0, 0, 1 )
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer/Easy" to="." method="_on_Easy_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer/Medium" to="." method="_on_Medium_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ModesControl/VBoxContainer/ModesContainer/Hard" to="." method="_on_Hard_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer/SoundsContainer/True" to="." method="_on_Sfx_ON_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SoundsControl/VBoxContainer/SoundsContainer/False" to="." method="_on_Sfx_OFF_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit/QuitButton" to="." method="_on_QuitButton_pressed"]

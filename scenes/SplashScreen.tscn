@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/SplashScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://scenes/MainMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FadeScreen.tscn" type="PackedScene" id=4]
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource( 1 )
+fade_screen_class = ExtResource( 4 )
+main_menu_scene_class = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
